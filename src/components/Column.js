@@ -11,18 +11,6 @@ const Column = (props) => {
   ])
 
   const [text, setText] = useState('')
-
-  const allowDrop = (event) => {
-    event.preventDefault();
-  }
-
-  const drop = (event) => {
-    event.preventDefault()
-    var data = event.dataTransfer.getData("text");
-    event.target.closest('.allowDrop1').appendChild(
-      document.getElementById(data)
-    );
-  }
   
   const addNewCard = () => {
     const newCard = {
@@ -43,12 +31,7 @@ const Column = (props) => {
       <div className="py-2 px-2">
         Mon 02.05
       </div>
-      <div 
-          id={'column' + props.colIndex} 
-          className='allowDrop1' 
-          onDrop={drop} 
-          onDragOver={allowDrop}
-        >
+      <div id={'column' + props.colIndex}>
         <CardList cards={cards} colIndex={props.colIndex}/>
       </div>
       <Submission 
