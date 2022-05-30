@@ -4,10 +4,10 @@ import CardList from './CardList'
 
 const Column = (props) => {
   const [cards, setCards] = useState([
-    {id: 1, body: 'Some body col 1'},
-    {id: 2, body: 'Some body col 2'},
-    {id: 3, body: 'Some body col 3'},
-    {id: 4, body: 'Some body col 4'}
+    {id: 1, },
+    {id: 2, },
+    {id: 3, },
+    {id: 4, }
   ])
 
   const [text, setText] = useState('')

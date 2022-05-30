@@ -1,19 +1,17 @@
 export default function Task(props){
     return (
         <div>
-            <div className="name">{props.person.name}</div>
-            <div className="phone">{props.person.phone}</div>
-            <div className="email">{props.person.email}</div>
-            <img className="img" src={props.person.img}></img>
+            <div className="id">1</div>
+            <div className="body">2</div>
         </div>
     )
 }
 
-function work(){
-    let row = []
-    for(let i = 1; i <= 100; i++){
-        let x = i + " "
-        row.push(x);
-    }
-    return row
-}
+// function work(){
+//     let row = []
+//     for(let i = 1; i <= 100; i++){
+//         let x = i + " "
+//         row.push(x);
+//     }
+//     return row
+// }
