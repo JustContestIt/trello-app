@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Column from './components/Column';
 import Task from "./components/Task";
 import Data from "./components/Data";
+import {useState} from "react";
 
 function App() {
     let a = {
@@ -13,17 +14,24 @@ function App() {
         img: "./airplane.png"
     };
 
+    const [number, setNumber] = useState({})
+
     const data = Data;
+
 
     return (
         <div>
             <div id='mainScreen'>
                 <Header />
-                <div className='d-flex py-5'>
-                    <Column colIndex={1}/>
-                    <Column colIndex={2}/>
+                <div className='d-flex'>
+                    {
+                        data.map(columnData => {
+                            return <Column key={columnData.id} columnData={columnData} />
+                        })
+                    }
                 </div>
                 <button onClick={show_modal} className="btn btn-primary">Show modal</button>
+                {/*<div>{console.log(data)}</div>*/}
             </div>
             <div id='modalScreen' className='modalScreen hidden' onClick={hide_modal}>
                 <div id='modalBox' className="modalBox">

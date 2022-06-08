@@ -215,10 +215,6 @@ textarea{
   color: black;
   margin-top: 120px;
 }
-.horiz-scroll{
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
 .non-vertical-scroll{
   overflow-y: hidden;
 }

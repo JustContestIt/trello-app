@@ -1,25 +1,17 @@
-import { useState } from "react";
-
 const  Submission = (props) => {
-    const [body, setBody] = useState('')
-
-    const handleSubmit = event => {
-        
-    }
-
     return (
-        <div className="px-2 py-2">
+        <div className="my-2">
             <div className="form-floating">
                 <textarea 
-                    className="form-control mt-2 rounded-1" 
+                    className="form-control my-2 rounded"
                     placeholder="Leave a comment here" 
-                    id="floatingTextarea2"
+                    id="floatingTextarea"
                     onChange={props.onChange}
                 ></textarea>
-                <label htmlFor="floatingTextarea2">Комментарии</label>
+                <label htmlFor="floatingTextarea">Комментарии</label>
             </div>
             <button 
-                className="btn btn-primary mt-2" 
+                className="btn btn-primary"
                 onClick={props.onClick}
             >
                 Добавить карточку

@@ -1,45 +1,43 @@
 import React, { useState } from 'react';
 import Submission from './Submission'
-import CardList from './CardList'
+import CardList from './Card'
 
 const Column = (props) => {
-  const [cards, setCards] = useState([
-    {id: 1, },
-    {id: 2, },
-    {id: 3, },
-    {id: 4, }
-  ])
+    const [cards, setCards] = useState(props.columnData.cards)
 
-  const [text, setText] = useState('')
-  
-  const addNewCard = () => {
-    const newCard = {
-      id: cards.length + 1, body: text
+    const [text, setText] = useState('')
+
+    function drop(ev){
+        let data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        ev.preventDefault();
     }
-    setCards([...cards, newCard])
-  }
-  
-  return (
-    <div className="
-        horiz-scroll 
-        m-5 
-        card-width 
-        bg-secondary 
-        bg-opacity-50 
-        rounded-3"
-      >
-      <div className="py-2 px-2">
-        Mon 02.05
-      </div>
-      <div id={'column' + props.colIndex}>
-        <CardList cards={cards} colIndex={props.colIndex}/>
-      </div>
-      <Submission 
-        onChange={event => setText(event.target.value)}
-        onClick={addNewCard}
-      />
-  </div>
-  )
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    const addNewCard = () => {
+        const newCard = {
+            id: cards.length + 1,
+            name: text
+        }
+        setCards([...cards, newCard])
+    }
+
+    return (
+        <div className="bg-primary bg-opacity-25">
+            <div id={props.columnData.id} className="m-5 card-width bg-secondary bg-opacity-25 rounded p-3">
+                <b className="p-3">{props.columnData.name}</b>
+                <div onDrop={drop} onDragOver={allowDrop}>
+                    <CardList cards={cards} colIndex={props.columnData.id}/>
+                </div>
+                <Submission
+                    onChange={event => setText(event.target.value)}
+                    onClick={addNewCard}
+                />
+            </div>
+        </div>
+    )
 }
 
 export default Column;
